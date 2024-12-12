@@ -1,13 +1,36 @@
 import { View, Text, StyleSheet } from 'react-native';
 import "../global.css"
-import {Link} from 'expo-router'
+import { ScrollView } from 'react-native';
+import '../constants/images'
+import { Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import images from '../constants/images';
 
 export default function App() {
   return (
-    <View className='h-full w-full items-center justify-center ' >
-      <Text className='text-3xl color-black-100 font-pregular '>Aora!</Text>
-      <Link href="./tabs/home">Home</Link>
-    </View>
+    <SafeAreaView className="bg-primary h-full">
+      <ScrollView contentContainerStyle={{ height: '100%' }}>
+        <View className="w-full justify-center items-center h-full px-4">
+          <Image source={images.logo} className="w-[130px] h-[84px] " resizeMode='contain' />
+          <Image source={images.cards} className="max-w-[380px] w-full h-[380px]" resizeMode="contain" />
+          <View className="relative mt-5">
+            <Text
+              style={{
+                fontSize: 24,
+                color: "#FFFFFF",
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+            >
+              Discover Endless Possibilities with{" "}
+              <Text style={{ color: "#FFA001" }}>Aora</Text>
+            </Text>
+
+          </View>
+        </View>
+
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
